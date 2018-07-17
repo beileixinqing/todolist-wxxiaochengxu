@@ -1,0 +1,102 @@
+<view class="container">
+  <form bindsubmit="saveDetail">
+    <view class="list-item">
+      <view class="text-box">
+        <text class="text-hidden"></text>
+        <textarea class="weui-textarea" placeholder="请输入文本" name="currentInput" bindinput="getInput" maxlength="1000" data-index="{{index}}" value="{{currentObj.currentInput}}" auto-focus="true" bindconfirm="editListItem" show-confirm-bar="false" />
+      </view>
+    </view>
+    <view class="list-item-box">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">在指定时间提醒我</view>
+          <view class="weui-cell__ft">
+            <switch name="dateStatus" bindchange="dateSwitchChange" checked="{{currentObj.dateStatus?true:false}}" />
+          </view>
+        </view>
+        <block wx:if="{{currentObj.dateStatus}}">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">日期</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker mode="date" name="date" value="{{currentObj.date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="weui-input">{{currentObj.date}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">时间</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker mode="time" name="time" value="{{currentObj.time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                <view class="weui-input">{{currentObj.time}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">重复</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker bindchange="bindDateRepeatChange" value="{{currentObj.dateRepeat}}" range="{{dateRange}}" name="dateRepeat">
+                <view class="weui-select">{{currentObj.dateRepeat}}</view>
+              </picker>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="list-item-box">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">在指定位置提醒我</view>
+          <view class="weui-cell__ft">
+            <switch name="locationStatus" bindchange="locationSwitchChange" checked="{{currentObj.locationStatus?true:false}}" />
+          </view>
+        </view>
+        <block wx:if="{{currentObj.locationStatus}}">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd" bindtap="chooseLocation">
+              <view class="weui-label">位置</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="点击左侧选择位置或者输入位置" name="location" value="{{currentObj.location}}" />
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="list-item-box">
+      <view class="weui-cells__title">选择优先级</view>
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="priorityChange" name="priority" value="{{currentObj.priority}}">
+          <label class="weui-cell weui-check__label" wx:for="{{priorityItems}}" wx:key="value">
+            <radio class="weui-check" value="{{item.name}}" checked="{{item.checked}}" />
+            <view class="weui-cell__bd">{{item.name}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+              <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="list-item-box">
+      <view class="weui-cells__title">备注</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" name="remark" placeholder="请输入文本" style="height: 3.3em" value="{{currentObj.remark}}" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="list-item-box">
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType="submit">确定</button>
+      </view>
+    </view>
+  </form>
+</view>

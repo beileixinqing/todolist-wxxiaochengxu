@@ -1,0 +1,49 @@
+.list-item {
+  margin-top: 40rpx;
+  height: auto;
+  width: 100%;
+  padding: 0 20rpx;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  transition: all 300ms ease;
+}
+
+.list-item-box{
+  margin-top: 40rpx;
+  height: auto;
+  width: 100%;
+  transition: all 300ms ease;
+}
+
+.text-box {
+  width: 100%;
+  position: relative;
+  min-height: 80rpx;
+  margin-top:17rpx;
+}
+.text-box text {
+  display: block;
+  word-break:break-all; 
+  word-wrap:break-word;
+}
+.text-box .weui-textarea {
+  box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow-y:hidden; 
+  word-break:break-all; 
+  word-wrap:break-word;
+}
+.weui-cell{
+  background-color:#fff;
+}
+form{
+  width:100%;
+}
+

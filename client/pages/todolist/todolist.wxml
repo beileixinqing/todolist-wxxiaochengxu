@@ -1,0 +1,33 @@
+<view class="container">
+  <block wx:for="{{todoLists}}" wx:key="*this">
+    <view class="list-item">
+      <view class="tick-circle" bindtap="tickToComplete" data-index="{{index}}">
+        <icon type="success_no_circle" size="26" color="#2cbba8" wx:if="{{item.completeStatus}}"></icon>
+      </view>
+      <view class="text-box">
+        <text class="{{ item.completeStatus && item.completeStatus === true ? 'text-line-through' : 'text-hidden' }}">{{item.currentInput}}</text>
+        <textarea class="weui-textarea {{ item.completeStatus && item.completeStatus === true ? 'text-transparent' : '' }}" placeholder="请输入文本" bindinput="getInput" maxlength="1000" data-id="{{item.id}}" value="{{item.currentInput}}" auto-focus="true" bindconfirm="editListItem"
+          show-confirm-bar="false" />
+      </view>
+      <navigator url="../todoDetail/todoDetail?id={{item.id}}">
+        <icon type="info_circle" size="23" color="#3478f6" class="icon-detail"></icon>
+      </navigator>
+      <icon class="icon-remove" type="clear" size="20" bindtap="removeTodoHandle" data-index="{{ index }}"/>
+    </view>
+  </block>
+  <view class="list-item">
+    <view class="add-icon" bindtap="addListItem">+</view>
+    <view class="text-box">
+      <text class="text-hidden">{{currentInput}}</text>
+      <textarea class="weui-textarea" placeholder="请输入文本" bindinput="getAddInput" maxlength="1000" auto-focus="true" bindconfirm="addListItem" show-confirm-bar="false" value="{{currentInput}}" />
+    </view>
+  </view>
+  <view class="footer">
+    {{ completedCount }} 个已完成
+  </view>
+  <!-- <view>
+    <navigator url="../compeletedList/compeletedList">
+      显示已完成事项
+    </navigator>
+  </view> -->
+</view>

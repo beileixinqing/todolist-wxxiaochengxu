@@ -1,0 +1,84 @@
+/* page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+} */
+
+.list-item {
+  margin-top: 40rpx;
+  height: auto;
+  width: 100%;
+  padding: 0 20rpx;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  transition: all 300ms ease;
+}
+
+.tick-circle {
+  width: 46rpx;
+  height: 46rpx;
+  border: 1rpx solid #a6a6a6;
+  border-radius: 50%;
+  margin-top: 17rpx;
+  margin-right: 20rpx;
+}
+
+.text-box {
+  width: 80%;
+  position: relative;
+  min-height: 80rpx;
+  margin-top:17rpx;
+}
+.text-line-through{
+  text-decoration:line-through;
+}
+.text-box text {
+  display: block;
+  word-break:break-all; 
+  word-wrap:break-word;
+}
+.text-hidden{
+  visibility: hidden;
+}
+.text-box .weui-textarea {
+  box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow-y:hidden; 
+  word-break:break-all; 
+  word-wrap:break-word;
+  width:100%;
+}
+.text-transparent{
+  color:rgba(52, 52, 52,0);
+}
+.add-icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 17rpx;
+  margin-right: 20rpx;
+  font-size:50rpx;
+  text-align: center;
+  line-height:50rpx;
+  color:#c6c6c6;
+}
+.icon-detail,.icon-remove{
+  margin-top:20rpx;
+  margin-left:10rpx;
+}
+.footer{
+  text-align: left;
+  width:100%;
+  color:#a6a6a6;
+  margin-top:20px;
+  margin-left:20px;
+}
